@@ -5,9 +5,9 @@ Alpicool fridge to mqtt gateway for esp32 boards. Supports basic state readings,
 - This project uses [Platformio](https://platformio.org)
 - clone this repo
 - edit src/config/config.h
-- compile and upload platformio run --target upload --target monitor --environment esp32dev
+- compile and upload
 - ```bash  
-  platformio run --target upload --target monitor --environment esp32dev
+  platformio run --target upload --environment esp32dev
   ```
 - add to home assistant
 
