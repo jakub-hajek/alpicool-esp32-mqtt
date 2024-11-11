@@ -1,5 +1,5 @@
 # alpicool-esp32-mqtt
-Alpicool fridge to mqtt gateway
+Alpicool fridge to mqtt gateway for esp32 boards. Supports basic state readings, setting temperature, turning the fridge on/off and de/activating low power (eco) mode.
 
 ## Installation
 - This project uses [Platformio]([https://duckduckgo.com](https://platformio.org)
