@@ -102,5 +102,6 @@ mqtt:
 
 ## Credit
 This is based on [@johnelliott](https://github.com/johnelliott)'s [alpicoold](https://github.com/johnelliott/alpicoold) implementation in Go.
-Thanks to [@klightspeed]([https://github.com/johnelliott](https://github.com/klightspeed) for reverse engineering the protocol and document the BLE names.
+
+Thanks to [@klightspeed](https://github.com/klightspeed) for reverse engineering the protocol and documenting the BLE names.
 
