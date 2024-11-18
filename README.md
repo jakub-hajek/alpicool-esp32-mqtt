@@ -5,6 +5,9 @@ Alpicool fridge to mqtt gateway for esp32 boards. Supports basic state readings,
 - This project uses [Platformio](https://platformio.org)
 - clone this repo
 - edit src/config/config.h
+  - you will need BLE address of your fridge
+  - run `python ./python/gatt.py` to search all ble devices around. The fridge must not be paired in the mobile app. (this does not work on Mac as Apple does not expose BLE adresses for security (thru obscurity) reasons.)
+  - look for the devices with name starting with `A1-`, `AK1-`, `AK2-`, or `AK3-` 
 - compile and upload
 - ```bash  
   platformio run --target upload --environment esp32dev
@@ -99,3 +102,5 @@ mqtt:
 
 ## Credit
 This is based on [@johnelliott](https://github.com/johnelliott)'s [alpicoold](https://github.com/johnelliott/alpicoold) implementation in Go.
+Thanks to [@klightspeed]([https://github.com/johnelliott](https://github.com/klightspeed) for reverse engineering the protocol and document the BLE names.
+
