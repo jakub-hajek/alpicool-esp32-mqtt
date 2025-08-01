@@ -16,8 +16,8 @@ Alpicool fridge to mqtt gateway for esp32 boards. Supports basic state readings,
 
 ```yaml
 mqtt:
-  - climate:
-      name: "Alpicool fridge"
+  climate:
+    - name: "Alpicool fridge"
       unique_id: "alpicoolfriddgeuid"
       max_temp: 20
       min_temp: -20
@@ -45,53 +45,45 @@ mqtt:
         {% set jsonon = { 'fridge_on': True } %}
         {% set jsonoff = { 'fridge_on': False } %}
         {{ jsonon | tojson if value == 'cool' else jsonoff | tojson }}
-      power_command_topic: "tele/zalpicool/cmd"
-      payload_on: >
-        { "fridge_on":true } "
-      payload_off: >
-        { "fridge_on":false } "
+      power_command_topic: "tele/alpicool/cmd"
+      payload_on: '{ "fridge_on":true }'
+      payload_off: '{ "fridge_on":false }'
       temperature_command_topic: "tele/alpicool/cmd"
-      temperature_command_template: >
-        {"fridge_temperature": {{ value }} }"
+      temperature_command_template: '{"fridge_temperature": {{ value }} }'
       temperature_state_topic: "tele/alpicool/sensor"
       temperature_state_template: "{{ value_json.f_desired_temperature | round(1, 'floor')}}"
       temp_step: 1
       precision: 1
-  - binary_sensor:
-      name: "Fridge On"
-      unique_id: zmkfridgeonoff
+
+  binary_sensor:
+    - name: "Fridge On"
+      unique_id: "zmkfridgeonoff"
       state_topic: "tele/alpicool/sensor"
       payload_on: true
       payload_off: false
       value_template: "{{ value_json.f_on }}"
-
-  - binary_sensor:
-      name: "Fridge Eco Mode"
-      unique_id: zmkfridgeecomode
+    - name: "Fridge Eco Mode"
+      unique_id: "zmkfridgeecomode"
       state_topic: "tele/alpicool/sensor"
       payload_on: true
       payload_off: false
       value_template: "{{ value_json.f_eco }}"
 
-  - sensor:
-      name: "Fridge Set Temperature"
-      unique_id: zmkfridgessettemperature
+  sensor:
+    - name: "Fridge Set Temperature"
+      unique_id: "zmkfridgessettemperature"
       state_topic: "tele/alpicool/sensor"
       suggested_display_precision: 0
       unit_of_measurement: "°C"
       value_template: "{{ value_json.f_desired_temperature }}"
-
-  - sensor:
-      name: "Fridge Temperature"
-      unique_id: zmkfridgetemperature
+    - name: "Fridge Temperature"
+      unique_id: "zmkfridgetemperature"
       state_topic: "tele/alpicool/sensor"
       suggested_display_precision: 0
       unit_of_measurement: "°C"
       value_template: "{{ value_json.f_actual_temperature }}"
-
-  - sensor:
-      name: "Fridge Voltage"
-      unique_id: zmkfridgevoltage
+    - name: "Fridge Voltage"
+      unique_id: "zmkfridgevoltage"
       state_topic: "tele/alpicool/sensor"
       suggested_display_precision: 2
       unit_of_measurement: "V"
